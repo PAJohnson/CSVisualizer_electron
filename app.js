@@ -85,27 +85,23 @@ function parseData(filename) {
                 }
             });
 
+            highlight = () => {
+                li.style.backgroundColor = '#919191';
+                li.style.color = 'white';
+                chartDiv.style.backgroundColor = '#f3f3f3';
+            }
+
+            unHighlight = () => {
+                li.style.backgroundColor = '#f3f3f3';
+                li.style.color = 'black';
+                chartDiv.style.backgroundColor = 'white';
+            }
+
             //highlight list item and graph on hover
-            li.onmouseover = function(){
-                li.style.backgroundColor = '#919191';
-                li.style.color = 'white';
-                chartDiv.style.backgroundColor = '#f3f3f3';
-            }
-            li.onmouseout = function(){
-                li.style.backgroundColor = '#f3f3f3';
-                li.style.color = 'black';
-                chartDiv.style.backgroundColor = 'white';
-            }
-            chartDiv.onmouseover = function(){
-                li.style.backgroundColor = '#919191';
-                li.style.color = 'white';
-                chartDiv.style.backgroundColor = '#f3f3f3';
-            }
-            chartDiv.onmouseout = function(){
-                li.style.backgroundColor = '#f3f3f3';
-                li.style.color = 'black';
-                chartDiv.style.backgroundColor = 'white';
-            }
+            li.onmouseover = highlight;
+            li.onmouseout = unHighlight;
+            chartDiv.onmouseover = highlight;
+            chartDiv.onmouseout = unHighlight;
         });
     })
 
